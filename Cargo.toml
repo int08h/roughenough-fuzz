@@ -1,0 +1,15 @@
+[package]
+name = "roughenough-fuzz"
+version = "0.1.0"
+authors = ["Stuart Stock <stuart@int08h.com>"]
+repository = "https://github.com/int08h/roughenough-fuzz"
+authors = ["Stuart Stock <stuart@int08h.com>"]
+license = "Apache-2.0"
+description = "Fuzzing for Roughenough: a Rust implementation of the Roughtime secure time sync protocol"
+readme = "README.md"
+keywords = ["roughtime", "afl", "fuzzing"]
+
+[dependencies]
+afl = "0.3"
+roughenough = { git = "https://github.com/int08h/roughenough", branch = "fuzz" }
+

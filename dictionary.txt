@@ -1,0 +1,18 @@
+# 
+# Roughtime tag AFL syntax dictionary 
+# 
+
+tag_CERT="CERT"
+tag_DELE="DELE"
+tag_INDX="INDX"
+tag_MAXT="MAXT"
+tag_MIDP="MIDP"
+tag_MINT="MINT"
+tag_NONC="NONC"
+tag_PAD="PAD\xff"
+tag_PATH="PATH"
+tag_PUBK="PUBK"
+tag_RADI="RADI"
+tag_ROOT="ROOT"
+tag_SIG="SIG\x00"
+tag_SREP="SREP"
