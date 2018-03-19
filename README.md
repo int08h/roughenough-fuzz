@@ -2,7 +2,7 @@
 
 [![Apache License 2](https://img.shields.io/badge/license-ASF2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
-This crate is for fuzzing [Roughenough](https://github.com/int08h/roughenough), a Rust 
+This crate is for fuzzing [Roughenough](https://github.com/int08h/roughenough), a 
 [Roughtime](https://roughtime.googlesource.com/roughtime) secure time synchronization client and 
 server implementation in Rust. 
 
