@@ -1,7 +1,6 @@
 [package]
 name = "roughenough-fuzz"
 version = "0.1.0"
-authors = ["Stuart Stock <stuart@int08h.com>"]
 repository = "https://github.com/int08h/roughenough-fuzz"
 authors = ["Stuart Stock <stuart@int08h.com>"]
 license = "Apache-2.0"

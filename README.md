@@ -9,7 +9,7 @@ server implementation in Rust.
 ## Building and Running
 
 Fuzzing uses [American fuzzy lop](http://lcamtuf.coredump.cx/afl/) via [afl.rs](https://github.com/rust-fuzz/afl.rs).
-Follow the [afl.rs setup instructions](https://rust-fuzz.github.io/book/afl/setup.html) to get `cargo afl` to work.
+Follow the [afl.rs setup instructions](https://rust-fuzz.github.io/book/afl/setup.html) to get `cargo afl` installed.
 
 On Linux everything should "just work": 
 
