@@ -9,8 +9,7 @@ publish = false
 cargo-fuzz = true
 
 [dependencies]
-#roughenough = { git = "https://github.com/int08h/roughenough", branch = "master" }
-roughenough = { git = "file:///Users/stuart/IdeaProjects/roughenough" }
+roughenough = { git = "https://github.com/int08h/roughenough", branch = "master" }
 
 [dependencies.roughenough-fuzz]
 path = ".."
