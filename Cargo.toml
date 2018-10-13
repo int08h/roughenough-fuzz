@@ -16,3 +16,7 @@ roughenough = { git = "https://github.com/int08h/roughenough", branch = "master"
 [[bin]]
 name = "hfuzz_target"
 path = "src/hfuzz_target.rs"
+
+[[bin]]
+name = "afl_target"
+path = "src/main.rs"
