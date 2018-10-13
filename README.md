@@ -27,8 +27,8 @@ FYI, Ubuntu 17.10 needed the `binutils-dev` and `libunwind-dev` packages to comp
 $ cd roughenough-fuzz
 
 # Run AFL
-$ cargo afl build --release
-$ cargo afl fuzz -i in -o out -x dictionary.txt target/release/roughenough-fuzz
+$ cargo afl build --release --bin afl_target
+$ cargo afl fuzz -i in -o out -x dictionary.txt target/release/afl_target
 
 # Run libFuzzer
 $ cargo fuzz run -O fuzz_target_1 -- -dict=dictionary.txt -max_len=2048
