@@ -262,8 +262,7 @@ dependencies = [
 
 [[package]]
 name = "roughenough"
-version = "1.0.6"
-source = "git+https://github.com/int08h/roughenough#b43bcb27ad303afd56cfe1d767e95c10cf3d1cb2"
+version = "1.1.0"
 dependencies = [
  "byteorder 1.2.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "chrono 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -286,7 +285,9 @@ version = "0.1.0"
 dependencies = [
  "afl 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "honggfuzz 0.5.29 (registry+https://github.com/rust-lang/crates.io-index)",
- "roughenough 1.0.6 (git+https://github.com/int08h/roughenough)",
+ "log 0.4.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "roughenough 1.1.0",
+ "simple_logger 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -462,7 +463,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum redox_syscall 0.1.40 (registry+https://github.com/rust-lang/crates.io-index)" = "c214e91d3ecf43e9a4e41e578973adeb14b474f2bee858742d127af75a0112b1"
 "checksum redox_termios 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7e891cfe48e9100a70a3b6eb652fef28920c117d366339687bd5576160db0f76"
 "checksum ring 0.13.2 (registry+https://github.com/rust-lang/crates.io-index)" = "dbe642b9dd1ba0038d78c4a3999d1ee56178b4d415c1e1fbaba83b06dce012f0"
-"checksum roughenough 1.0.6 (git+https://github.com/int08h/roughenough)" = "<none>"
 "checksum rustc_version 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)" = "138e3e0acb6c9fb258b19b67cb8abd63c00679d2851805ea151465464fe9030a"
 "checksum semver 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)" = "1d7eb9ef2c18661902cc47e535f9bc51b78acd254da71d375c2f6720d9a40403"
 "checksum semver-parser 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)" = "388a1df253eca08550bef6c72392cfe7c30914bf41df5269b68cbd6ff8f570a3"
