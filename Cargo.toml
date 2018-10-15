@@ -22,7 +22,7 @@ path = "src/hfuzz_target.rs"
 
 [[bin]]
 name = "afl_target"
-path = "src/main.rs"
+path = "src/afl_target.rs"
 
 [[bin]]
 name = "afl_server_target"
