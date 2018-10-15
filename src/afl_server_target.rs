@@ -13,7 +13,7 @@ fn main() {
     // afl.rs alwauys aborts on panic,
     let server = AssertUnwindSafe(RefCell::new(Server::new(Box::new(config))));
 
-    afl::fuzz(|bytes: &[u8]| {
+    afl::read_stdio_bytes(|bytes| {
         let mut borrow = server.borrow_mut();
 
         // Split fuzzer input into multiple packets
