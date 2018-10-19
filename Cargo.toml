@@ -9,10 +9,14 @@ readme = "README.md"
 keywords = ["roughtime", "afl", "fuzzing"]
 
 [dependencies]
-afl = "0.3"
+afl = "0.4"
 honggfuzz = "0.5"
 roughenough = { git = "https://github.com/int08h/roughenough", branch = "master" }
 
 [[bin]]
 name = "hfuzz_target"
 path = "src/hfuzz_target.rs"
+
+[[bin]]
+name = "afl_target"
+path = "src/main.rs"

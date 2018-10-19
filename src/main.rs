@@ -1,4 +1,4 @@
-extern crate afl;
+#[macro_use] extern crate afl;
 extern crate roughenough;
 
 use std::fs::File;
@@ -19,8 +19,8 @@ fn main() {
     
         let _ = roughenough::RtMessage::from_bytes(&contents);
     } else {
-        afl::read_stdio_bytes(move |bytes| {
-            let _ = roughenough::RtMessage::from_bytes(&bytes);
+        fuzz!(|bytes: &[u8]| {
+            let _ = roughenough::RtMessage::from_bytes(bytes);
         });
     }
 }
