@@ -46,6 +46,7 @@ $ HFUZZ_RUN_ARGS="--dict dictionary.txt --max_file_size 2048 --input in/" cargo 
 
 ## Contributors
 * Stuart Stock (stuart {at} int08h.com)
+* Aaron Hill (aa1ronham {at} gmail.com)
 
 ## Copyright and License
 roughenough-fuzz is copyright (c) 2018 int08h LLC. All rights reserved. 
