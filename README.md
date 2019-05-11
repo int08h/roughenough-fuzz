@@ -1,6 +1,7 @@
 # roughenough-fuzz
 
-[![Apache License 2](https://img.shields.io/badge/license-ASF2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![crates.io](https://img.shields.io/crates/v/roughenough-fuzz.svg?style=flat-square)](https://crates.io/crates/roughenough-fuzz)
+[![Apache License 2](https://img.shields.io/badge/license-ASF2-blue.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 This crate is for fuzzing [Roughenough](https://github.com/int08h/roughenough), a Rust
 implementation of the [Roughtime](https://roughtime.googlesource.com/roughtime) secure time 
@@ -12,14 +13,28 @@ Fuzzing uses [American fuzzy lop](http://lcamtuf.coredump.cx/afl/) via [afl.rs](
 [libFuzzer](http://llvm.org/docs/LibFuzzer.html) via [cargo-fuzz](https://github.com/rust-fuzz/cargo-fuzz),
 and [honggfuzz](http://honggfuzz.com/) via [honggfuzz-rs](https://github.com/rust-fuzz/honggfuzz-rs).
 
-**Rust Nightly** is needed to compile this crate. The nightly-only `-Z` compiler flag is required
-by `cargo-fuzz`. MacOS users also need nightly to compile `afl.rs`.
-
 To install:
 
 * `cargo install afl cargo-fuzz honggfuzz`
 
 FYI, Ubuntu 17.10 needed the `binutils-dev` and `libunwind-dev` packages to compile cargo-fuzz. YMMV.
+
+### AFL and linker issues
+
+If your build fails with a message about `__sancov_guards` similar to:
+
+```
+/usr/bin/ld: __sancov_guards has both ordered [__sancov_guards[...]] sections
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+```
+
+You've encountered [Rust issue 53945](https://github.com/rust-lang/rust/issues/53945). A 
+work-around is to use `gold` for linking:
+
+```
+RUSTFLAGS="-Clink-arg=-fuse-ld=gold" cargo afl build --release --bin afl_server_target
+```
 
 ## Running
 
@@ -49,7 +64,7 @@ $ HFUZZ_RUN_ARGS="--dict dictionary.txt --max_file_size 2048 --input in/" cargo 
 * Aaron Hill (aa1ronham {at} gmail.com)
 
 ## Copyright and License
-roughenough-fuzz is copyright (c) 2018 int08h LLC. All rights reserved. 
+roughenough-fuzz is copyright (c) 2018-2019 int08h LLC. All rights reserved. 
 
 int08h LLC licenses roughenough-fuzz (the "Software") to you under the Apache License, version 2.0 
 (the "License"); you may not use this Software except in compliance with the License. You may obtain 

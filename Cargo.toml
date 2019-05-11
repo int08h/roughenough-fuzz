@@ -1,6 +1,6 @@
 [package]
 name = "roughenough-fuzz"
-version = "0.1.0"
+version = "0.2.0"
 repository = "https://github.com/int08h/roughenough-fuzz"
 authors = ["Stuart Stock <stuart@int08h.com>"]
 license = "Apache-2.0"
@@ -15,8 +15,7 @@ log = "0.4"
 simple_logger = "0.5"
 mio = "0.6"
 hex = "*"
-
-roughenough = { path = "../roughenough" }
+roughenough = "1.1"
 
 [[bin]]
 name = "hfuzz_target"
