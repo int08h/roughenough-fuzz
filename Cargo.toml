@@ -13,6 +13,8 @@ afl = "0.4"
 honggfuzz = "0.5"
 log = "0.4"
 simple_logger = "0.5"
+mio = "0.6"
+hex = "*"
 
 roughenough = { path = "../roughenough" }
 
@@ -27,3 +29,7 @@ path = "src/afl_target.rs"
 [[bin]]
 name = "afl_server_target"
 path = "src/afl_server_target.rs"
+
+[[bin]]
+name = "afl_envelope_target"
+path = "src/afl_envelope_target.rs"
