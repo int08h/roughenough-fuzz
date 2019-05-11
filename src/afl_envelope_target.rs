@@ -1,4 +1,4 @@
-#[macro_use] extern crate afl;
+extern crate afl;
 extern crate roughenough;
 
 extern crate hex;
@@ -14,8 +14,8 @@ use afl::fuzz;
 struct NoOpKms;
 
 impl KmsProvider for NoOpKms {
-    fn encrypt_dek(&self, _ : &Vec<u8>) -> Result<Vec<u8>, KmsError> {
-        unimplemented!()
+    fn encrypt_dek(&self, plaintext_dek : &Vec<u8>) -> Result<Vec<u8>, KmsError> {
+        Ok(plaintext_dek.clone())
     }
 
     fn decrypt_dek(&self, encrypted_dek: &Vec<u8>) -> Result<Vec<u8>, KmsError> {
@@ -28,12 +28,11 @@ fn main() {
     let kms = NoOpKms {};
 
     if args.count() == 2 as usize {
-        let filename = env::args().nth(1).unwrap();
-        let mut file = File::open(filename).unwrap();
-        let size = file.metadata().unwrap().len();
-    
-        let mut contents = Vec::with_capacity(size as usize);
-        file.read_to_end(&mut contents).unwrap();
+        let filename = env::args().nth(1)?;
+        let mut file = File::open(filename)?;
+
+        let mut contents = Vec::new();
+        file.read_to_end(&mut contents)?;
     
         match EnvelopeEncryption::decrypt_seed(&kms, &contents) {
             Ok(seed) => println!("seed {}", hex::encode(seed)),

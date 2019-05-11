@@ -1,4 +1,5 @@
 extern crate afl;
+extern crate mio;
 extern crate roughenough;
 
 use std::cell::RefCell;
@@ -15,8 +16,6 @@ fn main() {
     // afl.rs always aborts on panic,
     let server = AssertUnwindSafe(RefCell::new(Server::new(Box::new(config))));
 
-    let mut events = Events::with_capacity(1024);
-
     afl::fuzz(|bytes| {
         let mut borrow = server.borrow_mut();
 
@@ -26,6 +25,7 @@ fn main() {
             borrow.send_to_self(chunk);
         }
 
+        let mut events = Events::with_capacity(64);
         borrow.process_events(&mut events);
     });
 }
