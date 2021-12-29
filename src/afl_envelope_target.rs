@@ -28,18 +28,18 @@ fn main() {
     let kms = NoOpKms {};
 
     if args.count() == 2 as usize {
-        let filename = env::args().nth(1)?;
-        let mut file = File::open(filename)?;
+        let filename = env::args().nth(1).unwrap();
+        let mut file = File::open(filename).unwrap();
 
         let mut contents = Vec::new();
-        file.read_to_end(&mut contents)?;
+        file.read_to_end(&mut contents).unwrap();
     
         match EnvelopeEncryption::decrypt_seed(&kms, &contents) {
             Ok(seed) => println!("seed {}", hex::encode(seed)),
             Err(err) => println!("error {:?}", err)
         }
     } else {
-        fuzz(|bytes: &[u8]| {
+        fuzz!(|bytes: &[u8]| {
             let _ = EnvelopeEncryption::decrypt_seed(&kms, &Vec::from(bytes));
         });
     }
